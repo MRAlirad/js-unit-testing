@@ -17,7 +17,6 @@ export function fizzBuzz(n) {
 export function calculateAverage(numbers) {
 	if (numbers.length === 0) return NaN;
 	return numbers.reduce((sum, current) => sum + current, 0) / numbers.length;
-	// return numbers[0]
 }
 
 export function factorial(number) {
