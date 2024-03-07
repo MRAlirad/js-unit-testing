@@ -1,4 +1,8 @@
 import {describe, test, it, expect} from 'vitest';
+// describe => for creating a test suite of a group of related test
+// test => creating a test case
+// it => creating a test case
+// expect
 import {max, fizzBuzz, calculateAverage} from '../src/intro';
 
 

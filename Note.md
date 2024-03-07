@@ -22,16 +22,24 @@ A form of automated testing where we write code to test our code
 ### Types of Tests
 
 1. Unit Testing
-    * Verify the correctness of individual units or compnents of an application in isolation.
-    * Help catch bugs early in the development process
+    - Verify the correctness of individual units or compnents of an application in isolation.
+    - Help catch bugs early in the development process
 2. Integration Testing
-    * Verify how diffrent units or components of your application work together as a whole
-    * idenfity issues that might arise when combining diffrent units such as data flow problems, communication between modules, and copatibility issues between components.
+    - Verify how diffrent units or components of your application work together as a whole
+    - idenfity issues that might arise when combining diffrent units such as data flow problems, communication between modules, and copatibility issues between components.
 3. End-to-end Testing
-    * broadest type of test focusing on testing the entire application as a whole
-    * the simulate real user interactions with the entire system
-    
-    
+    - broadest type of test focusing on testing the entire application as a whole
+    - the simulate real user interactions with the entire system
+
+### Tesing Framework
+
+A set of tools for writing and running tests
+
+#### Wath a test framwork includes
+1. Test Runner => executing tests
+2. Assertion Libraries => check if the code behaves as expected
+3. Mocking Tools => replace certain modules with fake simulating different scenarios
+4. Test Coverage Tools => check how much of the code is covered by tests
 
 ## Test Driven Development (TDD)
 
