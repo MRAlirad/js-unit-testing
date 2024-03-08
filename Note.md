@@ -143,3 +143,7 @@ A test that can be trusted. => out tests should not produce false positives or f
 ## Boundary Testing
 
 A testing technique where we focus on the edges or boundaries of input values to ensure our software behaves correctly under extreme conditions
+
+## Parameterized Tests (Data Driven Test)
+
+a way to run the same test multiple times with different sets of inpu data.
