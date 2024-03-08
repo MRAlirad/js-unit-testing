@@ -67,3 +67,42 @@ TDD prevents us from over-engineering solutions.
 7. Testing asynchronous code
 8. Setup and tear down
 
+## Characteeristics of good unit tests
+
+Not all tests are created equall.
+Writing bad tests is worse than having no tests.
+Not only don't they provide any value, but they also get in the way and prevent you from getting your job done.
+
+Good tests are maintainable, robust, and trustworthy
+
+### Maintainable Tests
+
+1. have a clear name
+2. Test a single behavior
+3. are small (ideally, less than 10 lines).
+4. Have clear variables/constants
+5. Are properly formatted
+
+### Robust Tests
+
+A test that is resilient to changes in code
+
+1. Test the behavior, not implementation
+2. Avoid tight assertions
+
+### Trustworthy Tests
+
+A test that can be trusted. => out tests should not produce false positives or false negatives.
+
+-   When they pass, we should be confident that the behavior we have tested is actually working.
+-   When They fail, we should know that somethid is wrong with the production code and not the test
+
+<br>
+
+1. Validate the correct behavior.
+2. Test boundary conditions. => such as empty arrays, null inputs and extreme values to verify that our code handles them correctly.
+3. Are deterministic. => produce the same result every time.
+4. Tests should be isolated
+    - Are not dependent on random data
+    - Are not dependent on current data/time
+    - Are not dependent on global state
