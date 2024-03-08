@@ -1,5 +1,5 @@
 import {it, expect, describe} from 'vitest';
-import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername} from '../src/core';
+import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername, canDrive} from '../src/core';
 
 describe('test suite', () => {
     it('test case', () => {
@@ -188,5 +188,35 @@ describe('isValidUsername', () => {
         expect(isValidUsername(null)).toBe(false);
         expect(isValidUsername(undefined)).toBe(false);
         expect(isValidUsername(11111111)).toBe(false);
+    });
+});
+
+describe('canDrive', () => {
+    it('should return error for invalid country code', () => {
+        expect(canDrive(20, 'IR')).toMatch(/invalid/i);
+    });
+
+    it('should return false for underage in the US', () => {
+        expect(canDrive(15, 'US')).toBe(false);
+    });
+
+    it('should return true for min in the US', () => {
+        expect(canDrive(16, 'US')).toBe(true);
+    });
+
+    it('should return true for eligible in the US', () => {
+        expect(canDrive(17, 'US')).toBe(true);
+    });
+
+    it('should return false for underage in the UK', () => {
+        expect(canDrive(16, 'UK')).toBe(false);
+    });
+
+    it('should return true for min in the UK', () => {
+        expect(canDrive(17, 'UK')).toBe(true);
+    });
+
+    it('should return true for eligible in the UK', () => {
+        expect(canDrive(18, 'UK')).toBe(true);
     });
 });
