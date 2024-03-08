@@ -151,3 +151,14 @@ a way to run the same test multiple times with different sets of inpu data.
 ## Setup and Teardown
 
 Sometimes we need to create a consitent environment before running our tests and to clean up any resources or state after the tests have executed. For example, before runnig our tests, we may want to set up a database conncetion, create necessary tables with data and so on. And after our tests, we want to do clean up.
+
+# Breaking Dependencies with Mocks
+
+## What we will cover
+
+1. Creating mock functions
+2. Mocking modules
+3. Interaction testing using mocks
+4. Partial mocking
+5. Working with spies
+6. Mocking dates/times
