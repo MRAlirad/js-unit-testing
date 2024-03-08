@@ -1,4 +1,4 @@
-import {it, expect, describe} from 'vitest';
+import {it, expect, describe, beforeEach, beforeAll, afterEach, afterAll} from 'vitest';
 import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername, canDrive, fetchData} from '../src/core';
 
 describe('test suite', () => {
@@ -258,4 +258,18 @@ describe('fetchData', () => {
             expect(error.reason).toMatch(/failed/i);
         }
     });
+});
+
+describe('setup and teardown', () => {
+    beforeAll(() => console.log('beforeAll called'));
+
+    beforeEach(() => console.log('beforeEach called'));
+
+    afterAll(() => console.log('afterAll called'));
+
+    afterEach(() => console.log('afterEach called'));
+
+    it('test case 1', () => {});
+
+    it('test case 2', () => {});
 });
