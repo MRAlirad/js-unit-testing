@@ -139,3 +139,7 @@ A test that can be trusted. => out tests should not produce false positives or f
 
 1. Positive Testing => Ensure that our application works correctly under normal conditions.
 2. Negative Tesing => Checks how well our applications handles unexpected or incorrect input.
+
+## Boundary Testing
+
+A testing technique where we focus on the edges or boundaries of input values to ensure our software behaves correctly under extreme conditions
