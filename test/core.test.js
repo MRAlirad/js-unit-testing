@@ -1,5 +1,5 @@
 import {it, expect, describe} from 'vitest';
-import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername, canDrive} from '../src/core';
+import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername, canDrive, fetchData} from '../src/core';
 
 describe('test suite', () => {
     it('test case', () => {
@@ -243,5 +243,19 @@ describe('canDrive Parameterized', () => {
         {age: 18, country: 'UK', result: true},
     ])('should return $result for $age in the $country', ({age, country, result}) => {
         expect(canDrive(age, country)).toBe(result);
+    });
+});
+
+describe('fetchData', () => {
+    it('should return a promise that will resolve to an array of numbers', async () => {
+        try {
+            const result = await fetchData();
+            // these two lines are optional
+            expect(Array.isArray(result)).toBe(true);
+            expect(result.length).toBeGreaterThan(0);
+        } catch (error) {
+            expect(error).toHaveProperty('reason');
+            expect(error.reason).toMatch(/failed/i);
+        }
     });
 });
