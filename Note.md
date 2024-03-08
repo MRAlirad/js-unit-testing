@@ -53,3 +53,17 @@ A set of tools for writing and running tests
 TDD produces code that is **100% coverd** by tests.
 
 TDD prevents us from over-engineering solutions.
+
+# Core Unit Testing Techniques
+
+## What we will cover
+
+1. Characteeristics of good unit tests => guiding principles that ensure your tests are reliable, maintainable and effective.
+2. Using matchers
+3. Writing good assertions
+4. Positive and negative testing
+5. Boundary testing
+6. Writing parameterized tests
+7. Testing asynchronous code
+8. Setup and tear down
+
