@@ -1,5 +1,5 @@
 import {it, expect, describe} from 'vitest';
-import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange} from '../src/core';
+import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername} from '../src/core';
 
 describe('test suite', () => {
     it('test case', () => {
@@ -159,5 +159,34 @@ describe('isPriceInRange', () => {
 
     it('should return true when the price is within the range', () => {
         expect(isPriceInRange(50, 0, 100)).toBe(true);
+    });
+});
+
+describe('isValidUsername', () => {
+    const minLength = 5;
+    const maxLength = 15;
+
+    it('should return false when the username is too short', () => {
+        expect(isValidUsername('M'.repeat(minLength - 1))).toBe(false);
+    });
+
+    it('should return false when the username is too long', () => {
+        expect(isValidUsername('M'.repeat(maxLength + 1))).toBe(false);
+    });
+
+    it('should return true when the username is at the main or max length', () => {
+        expect(isValidUsername('M'.repeat(minLength))).toBe(true);
+        expect(isValidUsername('M'.repeat(maxLength))).toBe(true);
+    });
+
+    it('should return true when the username is within the length contraint', () => {
+        expect(isValidUsername('M'.repeat(minLength + 1))).toBe(true);
+        expect(isValidUsername('M'.repeat(maxLength - 1))).toBe(true);
+    });
+
+    it('should return false for invalid input types', () => {
+        expect(isValidUsername(null)).toBe(false);
+        expect(isValidUsername(undefined)).toBe(false);
+        expect(isValidUsername(11111111)).toBe(false);
     });
 });
