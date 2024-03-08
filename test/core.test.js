@@ -162,6 +162,18 @@ describe('isPriceInRange', () => {
     });
 });
 
+describe('isPriceInRange Parameterized', () => {
+    it.each([
+        {scenario: 'price < min', price: -10, result: false},
+        {scenario: 'price = min', price: 0, result: true},
+        {scenario: 'max > price > min', price: 50, result: true},
+        {scenario: 'price = max', price: 100, result: true},
+        {scenario: 'price > max', price: 200, result: false},
+    ])('should return $result when $scenario', ({price, result}) => {
+        expect(isPriceInRange(price, 0, 100)).toBe(result);
+    });
+});
+
 describe('isValidUsername', () => {
     const minLength = 5;
     const maxLength = 15;
