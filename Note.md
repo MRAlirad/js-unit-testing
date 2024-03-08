@@ -1,4 +1,6 @@
-# What we will cover
+# Intoduction To Unit Testing
+
+## What we will cover
 
 1. what is unit tesing
 2. types of tests
@@ -31,11 +33,12 @@ A form of automated testing where we write code to test our code
     - broadest type of test focusing on testing the entire application as a whole
     - the simulate real user interactions with the entire system
 
-### Tesing Framework
+## Tesing Framework
 
 A set of tools for writing and running tests
 
-#### Wath a test framwork includes
+### Wath a test framwork includes
+
 1. Test Runner => executing tests
 2. Assertion Libraries => check if the code behaves as expected
 3. Mocking Tools => replace certain modules with fake simulating different scenarios
