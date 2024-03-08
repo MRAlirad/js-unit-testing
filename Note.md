@@ -106,3 +106,31 @@ A test that can be trusted. => out tests should not produce false positives or f
     - Are not dependent on random data
     - Are not dependent on current data/time
     - Are not dependent on global state
+
+## Using Mathers
+
+1. Equality
+    - toBe => use to be with primitive values like numbers, strings, and booleans
+    - toEqual => comparing objects
+2. Truthiness
+    - toBeTruthy
+    - toBefalsy
+    - toBeNull
+    - toBeUndefined
+    - toBeDefined
+3. Numbers
+    - toBeGreaterThan
+    - toBeGreaterThanOrEqualTo
+    - toBeLessThan
+    - toBeLessThanOrEqualTo
+    - toBeCloseTo => for floating point numbers
+4. Stings
+    - toMatch => look for certain words or pharases in a message.
+5. Objects
+    - toMatchObject => assert that an object matches a subset of properties of an object.
+    - toHaveProperty => to see if an object has a particular property.
+6. Arrays
+    - toContain => to assert that an array contains a certain value.
+    - toHaveLength => for asserting the length of an array
+7. Exceptions
+    - toThrowError => when we expect a function to thorw an exeption.
