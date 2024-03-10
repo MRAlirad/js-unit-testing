@@ -1,7 +1,7 @@
 import {vi, it, expect, describe} from 'vitest';
 
-describe('test suite', () => {
-    it('test case', () => {
+describe('working with mock function', () => {
+    it('working with mock function test', () => {
         const greet = vi.fn();
         // programm a mock function to return a value
         greet.mockReturnValue('Hello');
@@ -16,9 +16,26 @@ describe('test suite', () => {
         // greet.mockImplementation(name => 'Hello ' + name);
         // const res = greet('Mohammad');
         // console.log(res);
-        
-        // expect(greet).toHaveBeenCalled();
+
+        expect(greet).toHaveBeenCalled();
         // expect(greet).toHaveBeenCalledWith('Mohammad');
-        expect(greet).toHaveBeenCalledOnce();
+        // expect(greet).toHaveBeenCalledOnce();
+    });
+});
+
+describe('exercise working with a mock function', () => {
+    it('send text', () => {
+        // creating a mock funtion
+        const sendText = vi.fn();
+        sendText.mockReturnValue('ok');
+
+        // call them mock function
+        const result = sendText('message');
+
+        // Assert that the mock function is called
+        expect(sendText).toHaveBeenCalledWith('message');
+
+        // Assert taht the result is 'ok
+        expect(result).toBe('ok');
     });
 });
