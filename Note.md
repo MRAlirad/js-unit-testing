@@ -162,3 +162,17 @@ Sometimes we need to create a consitent environment before running our tests and
 4. Partial mocking
 5. Working with spies
 6. Mocking dates/times
+
+## Mock function
+
+a function that imitates the behavior of a real function. wer use them to test a unit in isolation
+
+### Mock functions
+1. mockReturnValue => programm a mock function to return a value
+2. mockResolvedValue => program a mock function to return a promise that resolves to a value
+3. mockImplementation => add loginc to a mock function
+
+### Mock Matchers
+1. toHaveBeenCalled() => check if the mock function was called
+2. toHaveBeenCalledWith() => check if the mock function was called with an argument
+3. toHaveBennCalledOnce() => when we want to make sure that a given mock function is called only once
