@@ -165,7 +165,11 @@ Sometimes we need to create a consitent environment before running our tests and
 
 ## Mock function
 
-a function that imitates the behavior of a real function. wer use them to test a unit in isolation
+a function that imitates the behavior of a real function. wer use them to test a unit in isolation.
+
+### Two cases for mock functions
+1. to provide values
+2. to test the interaction between units
 
 ### Mock functions
 1. mockReturnValue => programm a mock function to return a value
@@ -176,3 +180,8 @@ a function that imitates the behavior of a real function. wer use them to test a
 1. toHaveBeenCalled() => check if the mock function was called
 2. toHaveBeenCalledWith() => check if the mock function was called with an argument
 3. toHaveBennCalledOnce() => when we want to make sure that a given mock function is called only once
+
+## Intraction Testing
+
+Sometimes, we need to test the interaction between different units or different funcctions.
+
