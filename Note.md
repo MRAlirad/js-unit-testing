@@ -185,3 +185,6 @@ a function that imitates the behavior of a real function. wer use them to test a
 
 Sometimes, we need to test the interaction between different units or different funcctions.
 
+## partial Mocking
+
+When we call v.mock() vitest replaces every exported function in this module with a mock function.but there are situations where we want to keep some of the functions in this module. we don't want to replace all of them with mock functions. this is what partial mock function all about.

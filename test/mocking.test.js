@@ -1,15 +1,34 @@
 import {vi, it, expect, describe} from 'vitest';
-import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder} from '../src/mocking';
+import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder, signUp} from '../src/mocking';
 import {getExchangeRate} from '../src/libs/currency';
 import {getShippingQuote} from '../src/libs/shipping';
 import {trackPageView} from '../src/libs/analytics';
 import {charge} from '../src/libs/payment';
+import {sendEmail} from '../src/libs/email';
 
 // to mock a module (fist step to replace a real function with a mock function)
 vi.mock('../src/libs/currency');
 vi.mock('../src/libs/shipping');
 vi.mock('../src/libs/analytics');
 vi.mock('../src/libs/payment');
+
+// partial mocking
+vi.mock('../src/libs/email', async (importOriginal) => {
+    // as part of executing our tests, vitest is going to pass a function here, whick we can call import original
+    // using this funcion we can import the original module, whick return a promise
+
+    const originalEmailModule = await importOriginal();
+
+    // we should return a module.
+    // in this module, we want to have all the functions of the original module, but we want to replace one of them. whick is sendEmail
+    return {
+        ...originalEmailModule,
+        sendEmail: vi.fn(), // to create a mock funtion
+    };
+
+    // if we do not provide a factory function here, vitest will replace every function, every exported function from this module with vi.fn().
+    // but now we're changing that behavior using partial mocking
+});
 
 describe('working with mock function', () => {
     it('working with mock function test', () => {
@@ -124,5 +143,31 @@ describe('submitOrder', () => {
         const result = await submitOrder(order, creditCard);
 
         expect(result).toEqual({success: false, error: 'payment_error'});
+    });
+});
+
+describe('signUp', () => {
+    const email = 'example@gmail.com';
+
+    it('should return false if email is invalid', async () => {
+        const result = await signUp('a');
+        expect(result).toBe(false);
+    });
+
+    it('should return true if email is valid', async () => {
+        const result = await signUp(email);
+        expect(result).toBe(true);
+    });
+
+    it('should send welcome email if email is valid', async () => {
+        const result = await signUp(email);
+        expect(sendEmail).toHaveBeenCalled();
+
+        // to validate the arguments we have to take a different approach
+        // the mock property gives us access to certain information about this mock function
+        const args = vi.mocked(sendEmail).mock.calls[0];
+
+        expect(args[0]).toBe(email);
+        expect(args[1]).toMatch(/welcome/i);
     });
 });
