@@ -1,5 +1,5 @@
 import {vi, it, expect, describe} from 'vitest';
-import {getPriceInCurrency} from '../src/mocking';
+import {getPriceInCurrency, getShippingInfo} from '../src/mocking';
 import {getExchangeRate} from '../src/libs/currency';
 
 // to mock a module (fist step to replace a real function with a mock function)
@@ -54,3 +54,11 @@ describe('getPriceInCurrency', () => {
         expect(price).toBe(15);
     });
 });
+
+describe('getShippingInfo', () => {
+    it('should return shipping unavailable if quote can not be fetched', () => {
+        const result = getShippingInfo('London');
+        
+        expect(result).toMatch(/unavailable/)
+    })
+})
