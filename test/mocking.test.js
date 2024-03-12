@@ -1,9 +1,11 @@
 import {vi, it, expect, describe} from 'vitest';
 import {getPriceInCurrency, getShippingInfo} from '../src/mocking';
 import {getExchangeRate} from '../src/libs/currency';
+import {getShippingQuote} from '../src/libs/shipping';
 
 // to mock a module (fist step to replace a real function with a mock function)
 vi.mock('../src/libs/currency');
+vi.mock('../src/libs/shipping.js');
 
 describe('working with mock function', () => {
     it('working with mock function test', () => {
@@ -57,8 +59,23 @@ describe('getPriceInCurrency', () => {
 
 describe('getShippingInfo', () => {
     it('should return shipping unavailable if quote can not be fetched', () => {
+        // we need tto program our mock funciton to return null as a quote
+        vi.mocked(getShippingQuote).mockReturnValue(null);
+
         const result = getShippingInfo('London');
+
+        expect(result).toMatch(/unavailable/i);
+    });
+    
+    it('should return shipping info if quote can be fetched', () => {
+        vi.mocked(getShippingQuote).mockReturnValue({cost: 10, estimatedDays: 2});
         
-        expect(result).toMatch(/unavailable/)
+        const result = getShippingInfo('London');
+
+        expect(result).toMatch('$10');
+        expect(result).toMatch(/2 days/i);
+        
+        // combine these two assertion
+        expect(result).toMatch(/shipping cost: \$10 \(2 days\)/i);
     })
-})
+});
