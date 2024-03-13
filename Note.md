@@ -191,4 +191,14 @@ When we call v.mock() vitest replaces every exported function in this module wit
 
 ## Spying on Functions
 
-to monitor the behavior of functions during test execution. it collects information about our function calls, and the result
+to monitor the behavior of functions during test execution. it collects information about our function calls, and the result.
+
+## Clearing, Resetting, and Restoring Mocks
+
+we should always clear out our mock functions before or after each test
+
+1. mockClear() => whick clears all information about every call.
+2. mockReset() => the same as mockClear(), but it also make the implementation an empty function. so if we programmed our mock function, if we changed its implementations, mockReset() is going ot change that implementation to an empty function.
+3. mockRestore()=> similar to mockClear(), but instead of reseting the inner function to an empty function, it restores the original implementation.
+
+this only makes sence in spies because if we create a mock using vi.fn() the original implementation is an empty function and return undefiend. but wen we create a spy, we can optionally changes the implementations, now if we call mock restore, the original implementation will be restored.

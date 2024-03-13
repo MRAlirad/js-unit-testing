@@ -1,4 +1,4 @@
-import {vi, it, expect, describe} from 'vitest';
+import {vi, it, expect, describe, beforeEach} from 'vitest';
 import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder, signUp, login} from '../src/mocking';
 import {getExchangeRate} from '../src/libs/currency';
 import {getShippingQuote} from '../src/libs/shipping';
@@ -149,6 +149,14 @@ describe('submitOrder', () => {
 
 describe('signUp', () => {
     const email = 'example@gmail.com';
+
+    beforeEach(() => {
+        vi.mocked(sendEmail).mockClear();
+
+        // or
+
+        vi.clearAllMocks();
+    });
 
     it('should return false if email is invalid', async () => {
         const result = await signUp('a');
