@@ -216,9 +216,18 @@ So don't overuse mocks. Use them only for mocking external dependencies like dat
 
 # Static Analysis Tools
 
-improve code quality with static analysis tools
+improve code quality with static analysis tools.
 
-## What we will cover
+Tools that analyze source code without executing it.
+
+## Tools
 1. Formatting code with Prettier.
-2. Linting type errors with TypeScript.
+2. Linting code with ESLint
+3. catching type errors with TypeScript.
 3. Automating code quality checks with Husky.
+
+## Benefits of Static Analysis Tools
+1. Catch potential errors early in the development process
+2. Enforce coding standards and best practices
+3. Improve code quality
+4. Ensure consistent code quality across the team
