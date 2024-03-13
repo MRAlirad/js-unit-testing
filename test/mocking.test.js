@@ -1,10 +1,11 @@
 import {vi, it, expect, describe} from 'vitest';
-import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder, signUp} from '../src/mocking';
+import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder, signUp, login} from '../src/mocking';
 import {getExchangeRate} from '../src/libs/currency';
 import {getShippingQuote} from '../src/libs/shipping';
 import {trackPageView} from '../src/libs/analytics';
 import {charge} from '../src/libs/payment';
 import {sendEmail} from '../src/libs/email';
+import security from '../src/libs/security';
 
 // to mock a module (fist step to replace a real function with a mock function)
 vi.mock('../src/libs/currency');
@@ -169,5 +170,19 @@ describe('signUp', () => {
 
         expect(args[0]).toBe(email);
         expect(args[1]).toMatch(/welcome/i);
+    });
+});
+
+describe('login', () => {
+    it('should email ehe one-time login code', async () => {
+        const email = 'example@gmail.com';
+        // we need to pass to arguments to spyOn method. and object, and a method in that object. that object is the object that contains generateCode function
+        // on the second argument we pass a string that represent a method
+        const spy = vi.spyOn(security, 'generateCode');
+
+        await login(email);
+
+        const scurityCode = spy.mock.results[0].value.toString();
+        expect(sendEmail).toHaveBeenCalledWith(email, scurityCode);
     });
 });

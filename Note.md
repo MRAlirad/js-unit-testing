@@ -188,3 +188,7 @@ Sometimes, we need to test the interaction between different units or different 
 ## partial Mocking
 
 When we call v.mock() vitest replaces every exported function in this module with a mock function.but there are situations where we want to keep some of the functions in this module. we don't want to replace all of them with mock functions. this is what partial mock function all about.
+
+## Spying on Functions
+
+to monitor the behavior of functions during test execution. it collects information about our function calls, and the result
