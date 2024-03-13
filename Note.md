@@ -213,3 +213,12 @@ mocks allow us to break dependencies and test our functions in isolation.
 But there is a problem with mocks we need to be aware of. Tests that use mocks become dependent on the implementation of our functions. And that's something we should avoid. Because I told you that, we should test what our functions do, not how they are implemented. If our tests know how our functions are implemented, they can break once we change the implementation.
 
 So don't overuse mocks. Use them only for mocking external dependencies like databases, APIs, or services that may not be available or slow to work with during test execution.
+
+# Static Analysis Tools
+
+improve code quality with static analysis tools
+
+## What we will cover
+1. Formatting code with Prettier.
+2. Linting type errors with TypeScript.
+3. Automating code quality checks with Husky.
