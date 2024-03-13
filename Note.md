@@ -220,14 +220,23 @@ improve code quality with static analysis tools.
 
 Tools that analyze source code without executing it.
 
-## Tools
-1. Formatting code with Prettier.
-2. Linting code with ESLint
-3. catching type errors with TypeScript.
-3. Automating code quality checks with Husky.
-
 ## Benefits of Static Analysis Tools
+
 1. Catch potential errors early in the development process
 2. Enforce coding standards and best practices
 3. Improve code quality
 4. Ensure consistent code quality across the team
+
+## Tools
+
+1. Formatting code with Prettier.
+2. Linting code with ESLint
+3. catching type errors with TypeScript.
+4. Automating code quality checks with Husky.
+
+### Prettier
+
+1. the most-loved code-formatting tool.
+2. Consistent code style
+3. More readable code
+4. Reduced code review discussions about formatting

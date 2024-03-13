@@ -1,10 +1,19 @@
-import {vi, it, expect, describe, beforeEach} from 'vitest';
-import {getPriceInCurrency, getShippingInfo, renderPage, submitOrder, signUp, login, isOnline, getDiscount} from '../src/mocking';
-import {getExchangeRate} from '../src/libs/currency';
-import {getShippingQuote} from '../src/libs/shipping';
-import {trackPageView} from '../src/libs/analytics';
-import {charge} from '../src/libs/payment';
-import {sendEmail} from '../src/libs/email';
+import { vi, it, expect, describe, beforeEach } from 'vitest';
+import {
+    getPriceInCurrency,
+    getShippingInfo,
+    renderPage,
+    submitOrder,
+    signUp,
+    login,
+    isOnline,
+    getDiscount,
+} from '../src/mocking';
+import { getExchangeRate } from '../src/libs/currency';
+import { getShippingQuote } from '../src/libs/shipping';
+import { trackPageView } from '../src/libs/analytics';
+import { charge } from '../src/libs/payment';
+import { sendEmail } from '../src/libs/email';
 import security from '../src/libs/security';
 
 // to mock a module (fist step to replace a real function with a mock function)
@@ -92,7 +101,10 @@ describe('getShippingInfo', () => {
     });
 
     it('should return shipping info if quote can be fetched', () => {
-        vi.mocked(getShippingQuote).mockReturnValue({cost: 10, estimatedDays: 2});
+        vi.mocked(getShippingQuote).mockReturnValue({
+            cost: 10,
+            estimatedDays: 2,
+        });
 
         const result = getShippingInfo('London');
 
@@ -119,11 +131,11 @@ describe('renderPage', () => {
 });
 
 describe('submitOrder', () => {
-    const order = {totalAmount: 10};
-    const creditCard = {creditCardNumber: '1234567890'};
+    const order = { totalAmount: 10 };
+    const creditCard = { creditCardNumber: '1234567890' };
 
     it('should charge the customer', async () => {
-        vi.mocked(charge).mockResolvedValue({status: 'success'});
+        vi.mocked(charge).mockResolvedValue({ status: 'success' });
 
         await submitOrder(order, creditCard);
 
@@ -131,19 +143,19 @@ describe('submitOrder', () => {
     });
 
     it('should return success when payment is successful', async () => {
-        vi.mocked(charge).mockResolvedValue({status: 'success'});
+        vi.mocked(charge).mockResolvedValue({ status: 'success' });
 
         const result = await submitOrder(order, creditCard);
 
-        expect(result).toEqual({success: true});
+        expect(result).toEqual({ success: true });
     });
 
     it('should return failed when payment is not successful', async () => {
-        vi.mocked(charge).mockResolvedValue({status: 'failed'});
+        vi.mocked(charge).mockResolvedValue({ status: 'failed' });
 
         const result = await submitOrder(order, creditCard);
 
-        expect(result).toEqual({success: false, error: 'payment_error'});
+        expect(result).toEqual({ success: false, error: 'payment_error' });
     });
 });
 

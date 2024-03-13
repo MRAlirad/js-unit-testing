@@ -1,10 +1,9 @@
-import {describe, test, it, expect} from 'vitest';
+import { describe, test, it, expect } from 'vitest';
 // describe => for creating a test suite of a group of related test
 // test => creating a test case
 // it => creating a test case
 // expect
-import {max, fizzBuzz, calculateAverage, factorial} from '../src/intro';
-
+import { max, fizzBuzz, calculateAverage, factorial } from '../src/intro';
 
 // 'describe method' => create a test suite or a group of related tests
 // 'max' => the name of test suite, could be the name of the function or the unit under test.

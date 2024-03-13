@@ -1,10 +1,27 @@
-import {it, expect, describe, beforeEach, beforeAll, afterEach, afterAll} from 'vitest';
-import {calculateDiscount, getCoupons, validateUserInput, isPriceInRange, isValidUsername, canDrive, fetchData, Stack} from '../src/core';
+import {
+    it,
+    expect,
+    describe,
+    beforeEach,
+    beforeAll,
+    afterEach,
+    afterAll,
+} from 'vitest';
+import {
+    calculateDiscount,
+    getCoupons,
+    validateUserInput,
+    isPriceInRange,
+    isValidUsername,
+    canDrive,
+    fetchData,
+    Stack,
+} from '../src/core';
 
 describe('test suite', () => {
     it('test case', () => {
-        const result = {name: 'Mohammad'};
-        expect(result).toEqual({name: 'Mohammad'});
+        const result = { name: 'Mohammad' };
+        expect(result).toEqual({ name: 'Mohammad' });
     });
 });
 
@@ -42,13 +59,13 @@ describe('writing Good Assertion for arrays', () => {
 
 describe('writing Good Assertion for object', () => {
     it('object test', () => {
-        const result = {name: 'Mohammad'};
+        const result = { name: 'Mohammad' };
 
         // Loose(too general)
-        expect(result).toMatchObject({name: 'Mohammad'});
+        expect(result).toMatchObject({ name: 'Mohammad' });
 
         // Tight (too specific)
-        expect(result).toEqual({name: 'Mohammad'});
+        expect(result).toEqual({ name: 'Mohammad' });
 
         // Better assertion
         expect(result).toHaveProperty('name');
@@ -65,7 +82,7 @@ describe('getCoupons', () => {
 
     it('should return an array with valid coupon codes', () => {
         const coupons = getCoupons();
-        coupons.forEach(coupon => {
+        coupons.forEach((coupon) => {
             expect(coupon).toHaveProperty('code');
             expect(typeof coupon.code).toBe('string');
             expect(coupon.code.length).toBeTruthy();
@@ -74,7 +91,7 @@ describe('getCoupons', () => {
 
     it('should return an array with valid discounts', () => {
         const coupons = getCoupons();
-        coupons.forEach(coupon => {
+        coupons.forEach((coupon) => {
             expect(coupon).toHaveProperty('discount');
             expect(typeof coupon.discount).toBe('number');
             expect(coupon.code).toBeTruthy();
@@ -164,12 +181,12 @@ describe('isPriceInRange', () => {
 
 describe('isPriceInRange Parameterized', () => {
     it.each([
-        {scenario: 'price < min', price: -10, result: false},
-        {scenario: 'price = min', price: 0, result: true},
-        {scenario: 'max > price > min', price: 50, result: true},
-        {scenario: 'price = max', price: 100, result: true},
-        {scenario: 'price > max', price: 200, result: false},
-    ])('should return $result when $scenario', ({price, result}) => {
+        { scenario: 'price < min', price: -10, result: false },
+        { scenario: 'price = min', price: 0, result: true },
+        { scenario: 'max > price > min', price: 50, result: true },
+        { scenario: 'price = max', price: 100, result: true },
+        { scenario: 'price > max', price: 200, result: false },
+    ])('should return $result when $scenario', ({ price, result }) => {
         expect(isPriceInRange(price, 0, 100)).toBe(result);
     });
 });
@@ -235,15 +252,18 @@ describe('canDrive', () => {
 
 describe('canDrive Parameterized', () => {
     it.each([
-        {age: 15, country: 'US', result: false},
-        {age: 16, country: 'US', result: true},
-        {age: 17, country: 'US', result: true},
-        {age: 16, country: 'UK', result: false},
-        {age: 17, country: 'UK', result: true},
-        {age: 18, country: 'UK', result: true},
-    ])('should return $result for $age in the $country', ({age, country, result}) => {
-        expect(canDrive(age, country)).toBe(result);
-    });
+        { age: 15, country: 'US', result: false },
+        { age: 16, country: 'US', result: true },
+        { age: 17, country: 'US', result: true },
+        { age: 16, country: 'UK', result: false },
+        { age: 17, country: 'UK', result: true },
+        { age: 18, country: 'UK', result: true },
+    ])(
+        'should return $result for $age in the $country',
+        ({ age, country, result }) => {
+            expect(canDrive(age, country)).toBe(result);
+        },
+    );
 });
 
 describe('fetchData', () => {
