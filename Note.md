@@ -202,3 +202,11 @@ we should always clear out our mock functions before or after each test
 3. mockRestore()=> similar to mockClear(), but instead of reseting the inner function to an empty function, it restores the original implementation.
 
 this only makes sence in spies because if we create a mock using vi.fn() the original implementation is an empty function and return undefiend. but wen we create a spy, we can optionally changes the implementations, now if we call mock restore, the original implementation will be restored.
+
+## To Mock or Not to Mock
+
+mocks allow us to break dependencies and test our functions in isolation.
+
+But there is a problem with mocks we need to be aware of. Tests that use mocks become dependent on the implementation of our functions. And that's something we should avoid. Because I told you that, we should test what our functions do, not how they are implemented. If our tests know how our functions are implemented, they can break once we change the implementation.
+
+So don't overuse mocks. Use them only for mocking external dependencies like databases, APIs, or services that may not be available or slow to work with during test execution.
