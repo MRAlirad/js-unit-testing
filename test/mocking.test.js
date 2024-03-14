@@ -46,6 +46,7 @@ describe('working with mock function', () => {
         // programm a mock function to return a value
         greet.mockReturnValue('Hello');
         // const result = greet();
+        greet();
         // console.log(result);
 
         // program a mock function to return a promise that resolves to a value
@@ -181,7 +182,7 @@ describe('signUp', () => {
     });
 
     it('should send welcome email if email is valid', async () => {
-        // const result = await signUp(email);
+        await signUp(email);
         expect(sendEmail).toHaveBeenCalled();
 
         // to validate the arguments we have to take a different approach
