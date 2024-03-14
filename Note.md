@@ -242,7 +242,22 @@ Tools that analyze source code without executing it.
 4. Reduced code review discussions about formatting
 
 ### ESLint
+
 1. A Popular code quality checker for JavaScript.
 2. Catch common coding mistakes early.
 3. Enforce coding standards and best practices.
 4. Facilitate collaboration within teams
+
+### TypeScript
+
+a statically-typed superset of JavaScript.
+
+1. superset => it means it has everything JS has to offer plus more.
+2. statically-typed => the type of our vairables and function parameters are specified at compile time as we code.
+
+#### Benefits of TS
+
+1. Catch typ-related issues at compile time.
+2. Improved code documentation.
+3. Better tooling for refactoring
+4. Stronger codebase with fewer runtime issues.
