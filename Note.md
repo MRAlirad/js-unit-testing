@@ -261,3 +261,7 @@ a statically-typed superset of JavaScript.
 2. Improved code documentation.
 3. Better tooling for refactoring
 4. Stronger codebase with fewer runtime issues.
+
+### Husky
+
+A popular tool for Git hooks automation
