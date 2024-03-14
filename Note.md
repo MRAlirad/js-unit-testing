@@ -240,3 +240,9 @@ Tools that analyze source code without executing it.
 2. Consistent code style
 3. More readable code
 4. Reduced code review discussions about formatting
+
+### ESLint
+1. A Popular code quality checker for JavaScript.
+2. Catch common coding mistakes early.
+3. Enforce coding standards and best practices.
+4. Facilitate collaboration within teams

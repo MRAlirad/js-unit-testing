@@ -1,4 +1,4 @@
-import { describe, test, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 // describe => for creating a test suite of a group of related test
 // test => creating a test case
 // it => creating a test case
@@ -14,10 +14,10 @@ describe('max', () => {
     // first argument => represents out test name
     // second argument => function that will executed by our test runner, vitest
     it('should return the first argument if it is greater', () => {
-        // structure using AAA method
-        // Arrange => set up test environment, including any necessary data or configrations
-        // Act => we perform the action we want to test
-        // Assert => we check the outcome to ensure that it matches out expectations.
+    // structure using AAA method
+    // Arrange => set up test environment, including any necessary data or configrations
+    // Act => we perform the action we want to test
+    // Assert => we check the outcome to ensure that it matches out expectations.
 
         // Arrage
         const a = 2;
@@ -29,8 +29,8 @@ describe('max', () => {
         // Assert
         expect(result).toBe(2); // expect method returns expectation object of matchers => it usese to verify expectations
 
-        // combine the steps into one line
-        // expect(max(2, 1)).toBe(2)
+    // combine the steps into one line
+    // expect(max(2, 1)).toBe(2)
     });
 
     it('should return the second argument if it is greater', () => {

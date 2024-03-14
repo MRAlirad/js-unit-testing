@@ -5,7 +5,7 @@ import {
     beforeEach,
     beforeAll,
     afterEach,
-    afterAll,
+    afterAll
 } from 'vitest';
 import {
     calculateDiscount,
@@ -15,7 +15,7 @@ import {
     isValidUsername,
     canDrive,
     fetchData,
-    Stack,
+    Stack
 } from '../src/core';
 
 describe('test suite', () => {
@@ -185,7 +185,7 @@ describe('isPriceInRange Parameterized', () => {
         { scenario: 'price = min', price: 0, result: true },
         { scenario: 'max > price > min', price: 50, result: true },
         { scenario: 'price = max', price: 100, result: true },
-        { scenario: 'price > max', price: 200, result: false },
+        { scenario: 'price > max', price: 200, result: false }
     ])('should return $result when $scenario', ({ price, result }) => {
         expect(isPriceInRange(price, 0, 100)).toBe(result);
     });
@@ -257,12 +257,12 @@ describe('canDrive Parameterized', () => {
         { age: 17, country: 'US', result: true },
         { age: 16, country: 'UK', result: false },
         { age: 17, country: 'UK', result: true },
-        { age: 18, country: 'UK', result: true },
+        { age: 18, country: 'UK', result: true }
     ])(
         'should return $result for $age in the $country',
         ({ age, country, result }) => {
             expect(canDrive(age, country)).toBe(result);
-        },
+        }
     );
 });
 

@@ -7,7 +7,7 @@ import {
     signUp,
     login,
     isOnline,
-    getDiscount,
+    getDiscount
 } from '../src/mocking';
 import { getExchangeRate } from '../src/libs/currency';
 import { getShippingQuote } from '../src/libs/shipping';
@@ -33,7 +33,7 @@ vi.mock('../src/libs/email', async (importOriginal) => {
     // in this module, we want to have all the functions of the original module, but we want to replace one of them. whick is sendEmail
     return {
         ...originalEmailModule,
-        sendEmail: vi.fn(), // to create a mock funtion
+        sendEmail: vi.fn() // to create a mock funtion
     };
 
     // if we do not provide a factory function here, vitest will replace every function, every exported function from this module with vi.fn().
@@ -45,7 +45,7 @@ describe('working with mock function', () => {
         const greet = vi.fn();
         // programm a mock function to return a value
         greet.mockReturnValue('Hello');
-        const result = greet();
+        // const result = greet();
         // console.log(result);
 
         // program a mock function to return a promise that resolves to a value
@@ -103,7 +103,7 @@ describe('getShippingInfo', () => {
     it('should return shipping info if quote can be fetched', () => {
         vi.mocked(getShippingQuote).mockReturnValue({
             cost: 10,
-            estimatedDays: 2,
+            estimatedDays: 2
         });
 
         const result = getShippingInfo('London');
@@ -181,7 +181,7 @@ describe('signUp', () => {
     });
 
     it('should send welcome email if email is valid', async () => {
-        const result = await signUp(email);
+        // const result = await signUp(email);
         expect(sendEmail).toHaveBeenCalled();
 
         // to validate the arguments we have to take a different approach
